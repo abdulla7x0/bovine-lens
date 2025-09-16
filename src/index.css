@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CattleIQ Design System - Professional Agricultural Tech Platform */
+
+@layer base {
+  :root {
+    /* CattleIQ Brand Colors */
+    --primary: 142 76% 36%; /* #16a34a - main brand green */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 142 69% 58%; /* #22c55e - lighter green */
+    --primary-dark: 142 86% 28%; /* #15803d - darker green */
+    
+    /* Neutrals - Professional grays */
+    --background: 60 9% 98%; /* #fafaf9 - warm white */
+    --foreground: 24 10% 10%; /* #1c1917 - deep charcoal */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    
+    --secondary: 60 5% 96%; /* #f5f5f4 - light gray */
+    --secondary-foreground: 24 10% 10%;
+    
+    --muted: 60 5% 96%;
+    --muted-foreground: 25 5% 45%; /* #78716c - medium gray */
+    
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Semantic colors */
+    --destructive: 0 72% 51%; /* #dc2626 - error red */
+    --destructive-foreground: 0 0% 100%;
+    
+    --warning: 25 95% 53%; /* #d97706 - warning amber */
+    --warning-foreground: 0 0% 100%;
+    
+    --success: 142 76% 36%; /* same as primary */
+    --success-foreground: 0 0% 100%;
+    
+    /* UI Elements */
+    --border: 20 6% 90%; /* #e7e5e4 */
+    --input: 20 6% 90%;
+    --ring: 142 76% 36%;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-default: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-primary: 0 0 0 3px hsl(var(--primary) / 0.2);
+    
+    /* Layout */
+    --radius: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-full: 9999px;
+
+    
+    /* Sidebar (if needed later) */
+    --sidebar-background: 60 9% 98%;
+    --sidebar-foreground: 25 5% 45%;
+    --sidebar-primary: 142 76% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 60 5% 96%;
+    --sidebar-accent-foreground: 24 10% 10%;
+    --sidebar-border: 20 6% 90%;
+    --sidebar-ring: 142 76% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-dark 
+           focus:ring-2 focus:ring-primary/20 focus:outline-none
+           transition-all duration-200 rounded-full px-6 py-3 font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground border border-border 
+           hover:bg-muted focus:ring-2 focus:ring-primary/20 focus:outline-none
+           transition-all duration-200 rounded-full px-6 py-3 font-medium;
+  }
+
+  /* Animations */
+  .animate-scanner-success {
+    @apply animate-[scanner-success_0.6s_ease-out_forwards];
+  }
+  
+  .animate-progress-bar {
+    @apply animate-[progress-bar_2s_ease-in-out_infinite];
+  }
+  
+  .animate-float {
+    @apply animate-[float_3s_ease-in-out_infinite];
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-light;
+  }
+  
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+  
+  .backdrop-blur-header {
+    @apply backdrop-blur-sm bg-background/80 border-b border-border/50;
+  }
+}
+
+/* Custom Keyframes */
+@keyframes scanner-success {
+  0% { 
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes progress-bar {
+  0% { width: 0%; }
+  50% { width: 60%; }
+  100% { width: 100%; }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
